@@ -26,7 +26,11 @@ Dipl.-Ing. Jürgen Kratochwill (Munich). Live at `portfolio.kwilleng.de`.
   - `favicon.ico`, `faviconOld.ico`
   - `img/avat.jpg`, `img/avataaars.svg`
   - `img/portfolio/` — project images (ids, hcx, abis, wm, spri, tex, sqlv, ltm, uml, etc.)
-  - `kwillEngLogoSmallAlpha.png` — owner's logo
+  - `logo/` — owner's company logo (Kratochwill Engineering), added 2026-11-23:
+    - `kwillEngLogoSmallAlpha.png` (345×388, transparent) — used as navbar brand icon
+    - `kwillEngLogoSmallerAlpha.png` (914×564, transparent) — used centered in footer
+    - `kwillEngLogoFull.png` (1408×768) and `kwillEngLogoSmall.png` (345×388) — solid-white full logos, not used (white box on dark bars)
+    - `logo.ico` (32×32) — favicon
 - `CNAME` — `portfolio.kwilleng.de`
 
 ## Portfolio items (11)

@@ -71,6 +71,76 @@ Working branch: `dev` (created from `master`). Never commit/push without explici
         "Live JIRA ingestion" sat on the bottom border and "Local dev agent" was misaligned.
       - Server on :8080 returns 200 for both updated assets (cupprocessor.png 1099478B, localai.png 178415B).
 
+## 2026-11-23 — Add the company logo to the homepage (navbar + footer)
+
+- [x] Added the owner's company logo (Kratochwill Engineering) in two best-fit locations on both
+      `index-en.html` and `index-de.html`:
+      - **Navbar:** replaced the placeholder "Start" brand text with the transparent-background
+         icon (`kwillEngLogoSmallAlpha.png`, 345×388) as the navbar-brand. Chosen over the solid-white
+         full logos (`kwillEngLogoFull.png` 1408×768, `kwillEngLogoSmall.png` 345×388) because the
+         dark navbar (`#2c3e50`) would show a white box.
+      - **Footer:** centered the larger transparent-background icon
+         (`kwillEngLogoSmallerAlpha.png`, 914×564) above the three footer columns with a subtle
+         drop-shadow so it blends on the dark footer.
+- [x] Added CSS to `docs/css/styles.css` (`.navbar-brand-logo`, `.footer-logo`, `.footer-logo-img`):
+         logo sized for the navbar with a shrink-transition to match `navbar-shrink`, and footer logo
+         centered with a drop-shadow.
+- [x] Kept `index-en.html` and `index-de.html` in sync (both navbar and footer edits mirrored).
+- [x] Verified: served on port 8080 — `index-en`, `index-de`, and both logo assets return HTTP 200.
+- [x] Rendered headless Chromium screenshots of EN (top + footer) and DE (top) pages. The green
+         hexagon icon displays correctly in the navbar and the full logo in the footer on both
+         languages, with no white box and good contrast on the dark backgrounds.
+
+### Logo variant selection
+| File | Size | Background | Used |
+|---|---|---|---|
+| `kwillEngLogoFull.png` | 1408×768 | solid white | ❌ (white box on dark bars) |
+| `kwillEngLogoSmall.png` | 345×388 | solid white | ❌ (white box on dark bars) |
+| `kwillEngLogoSmallAlpha.png` | 345×388 | transparent (icon) | ✅ navbar |
+| `kwillEngLogoSmallerAlpha.png` | 914×564 | transparent (icon) | ✅ footer |
+| `logo.ico` | 32×32 | — | favicon (left alone) |
+
+### Logo size tuning (2026-11-23)
+- The footer logo initially rendered too small. The engineer requested ~2× the default size.
+- Investigated whether Bootstrap's `.img-fluid { height: auto }` (styles.css:601) was overriding
+  `.footer-logo-img { height }` (the footer `<img>` carries both classes). Confirmed it is **not**
+  overriding: `.footer-logo-img` (line 11063) comes *after* `.img-fluid` (line 601) with equal
+  specificity, so it wins the cascade and the `height` takes effect. Verified by rendering the
+  standalone footer test page (real served CSS + logo) at 2.25rem / 3rem / 6rem — the logo scaled
+  correctly each time (2.25/3rem were too small and visually similar; 6rem is correct).
+- Set `.footer-logo-img { height: 6rem }` (styles.css:11063) — ~2× the too-small default, matching
+  the engineer's request. No `!important` needed.
+- **Navbar logo size correction (2026-11-23):** The engineer reported the header symbol was also
+  "totally off" / too big. The navbar logo (`.navbar-brand-logo`) had been set to `height: 1.75rem`
+  (shrink → `1.25rem`). I first reduced it to `1rem` then `0.85rem` and rendered full-page (headless
+  Chromium, real served CSS) — but the engineer reported the navbar logo was *also* too small. Set
+  back to `height: 1.75rem` (shrink → `1.25rem`), which renders proportionally in the 60px navbar.
+- **Footer logo size (2026-11-23):** The engineer said the footer logo was still too small at 6rem.
+  Bumped to 8rem, then settled at **7rem** after visual verification in the actual browser (see
+  below). No `!important` needed.
+- **Verified in the real browser (2026-11-23):** The engineer opened a browser in the virtual desktop
+  (Xvfb display :40, 1280×800 kiosk chromium, pid 9186). I focused it with `xdotool`, navigated to
+  `http://localhost:8080/index-de.html`, and screenshot with `scrot` (`/tmp/user_site_v3.png`).
+  Served CSS confirmed via curl at each step. Result: navbar logo at 1.75rem proportional; footer
+  logo at 7rem shows the full logo (icon + "KRATOCHWILL-ENGINEERING" wordmark) centered above the
+  three columns, no white box, good contrast on the dark footer (`#2c3e50`).
+- **Logo color fix (2026-11-23):** The engineer reported the green logo blends into the dark blue
+  background (`#2c3e50`) — not a size problem, a color-compatibility problem. Created white versions:
+  `kwillEngLogoSmallWhite.png` (navbar) and `kwillEngLogoSmallerWhite.png` (footer) via `convert`
+  (`-alpha extract -threshold 12% -fill white -alpha set`). Applied to both `index-en.html` and
+  `index-de.html`. The engineer later replaced these with cleaner hand-made white assets (same
+  filenames), so HTML references remain valid.
+- **Navbar size + shrink-state fix (2026-11-23):** The engineer reported the navbar logo was too large
+  in the expanded state and too small in the shrink state (scroll). Previously `7rem` expanded /
+  `1.25rem` shrink — a jarring 5.6× jump. Set expanded to `3.5rem` and shrink to `2.5rem` (a smooth
+  1.4× transition). Navbar padding kept at 10px so expanded height ≈ original 76px. Footer bumped
+  20%: `10rem` → `12rem`. Verified both states in the real browser (expanded `/tmp/user_site_v8.png`,
+  shrink `/tmp/user_site_v9.png`).
+- **⚠️ Limitations:** Headless Chromium full-page renders at 1920×1080 were used as an interim
+  check but **do not** match the engineer's actual browser (resolution, zoom, OS). The final
+  confirmation is the scrot screenshot of the real browser at 1280×800. The engineer should still
+  confirm sizes in their own browser — the 1280×800 desktop may differ from their typical setup.
+
 ## Next steps (pending approval / further instruction)
 - Update `docs/index-de.html` in parallel with `docs/index-en.html` when editing English content.
 - Approve commit + push (requires the correct SSH key — see repo notes) when ready.
