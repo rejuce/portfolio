@@ -136,6 +136,8 @@ Working branch: `dev` (created from `master`). Never commit/push without explici
   1.4× transition). Navbar padding kept at 10px so expanded height ≈ original 76px. Footer bumped
   20%: `10rem` → `12rem`. Verified both states in the real browser (expanded `/tmp/user_site_v8.png`,
   shrink `/tmp/user_site_v9.png`).
+- **Committed + pushed (2026-11-23):** Commit `757e5e3` on `dev` — "Add company logo to homepage navbar and footer" — 7 files changed, 115 insertions. Pushed via deploy key
+  (`GIT_SSH_COMMAND="ssh -i ~/.ssh/id_portfolio_deploy" git push origin dev`) → `80ba7f0..757e5e3 dev -> dev`.
 - **⚠️ Limitations:** Headless Chromium full-page renders at 1920×1080 were used as an interim
   check but **do not** match the engineer's actual browser (resolution, zoom, OS). The final
   confirmation is the scrot screenshot of the real browser at 1280×800. The engineer should still
