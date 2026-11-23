@@ -17,7 +17,7 @@ Dipl.-Ing. Jürgen Kratochwill (Munich). Live at `portfolio.kwilleng.de`.
 
 ## docs/ (built / published — tracked in git — SOURCE OF TRUTH)
 - `index.html` — language redirect → `index-en.html` / `index-de.html` (per `navigator.language`)
-- `index-en.html` — English site (hand-edited; 9 portfolio items + modals 1–9)
+- `index-en.html` — English site (hand-edited; 11 portfolio items + modals 1–11)
 - `index-de.html` — German site (hand-edited)
 - `impressum.html` — legal notice
 - `css/styles.css` — compiled CSS
@@ -29,7 +29,7 @@ Dipl.-Ing. Jürgen Kratochwill (Munich). Live at `portfolio.kwilleng.de`.
   - `kwillEngLogoSmallAlpha.png` — owner's logo
 - `CNAME` — `portfolio.kwilleng.de`
 
-## Portfolio items (9)
+## Portfolio items (11)
 1. Distributed Industrial Measurement System (`portfolioModal1`)
 2. Next-Gen Sensor Platform (`portfolioModal2`)
 3. High Speed Edge Characterization (`portfolioModal3`)
@@ -39,6 +39,8 @@ Dipl.-Ing. Jürgen Kratochwill (Munich). Live at `portfolio.kwilleng.de`.
 7. 2D-3D Data Fusion (`portfolioModal7`)
 8. Windows Like Linux Task Manager — open source, github.com/rejuce/LikeTaskManager (`portfolioModal8`)
 9. Texture Analysis (`portfolioModal9`)
+10. Industrial Image Processing (`portfolioModal10`) — sample-validated core algorithm for a client's complex industrial-inspection problem (uncertainty, varying lighting, transparency); asset `cupprocessor.{svg,png}`
+11. LocalAI Deployments (`portfolioModal11`) — full on-premise LocalAI stack (RAG over 100k+ docs + live JIRA ingestion, fully local interface, local dev agent); asset `localai.{svg,png}`
 
 ## Notes
 - Each portfolio item is a modal in both language files; keep `index-en.html` and `index-de.html`

@@ -10,7 +10,7 @@ Working branch: `dev` (created from `master`). Never commit/push without explici
 - [x] Mapped the repository: inspected `src/`, `docs/`, `scripts/`, `package.json`, `README.md`,
       `.gitignore`, `.editorconfig`, and `docs/CNAME`.
 - [x] Read `docs/index-en.html` to understand the personalization, multilingual setup, and the 9
-      portfolio items / modals.
+      portfolio items / modals (11 as of 2026-11-23).
 - [x] Wrote `agent/AGENT.md` (project overview, layout, conventions, portfolio items, working rules).
 - [x] Wrote `agent/outline.md` (structured file-by-file repository map).
 - [x] Wrote this `agent/progress.md` log.
@@ -35,8 +35,41 @@ Working branch: `dev` (created from `master`). Never commit/push without explici
 - `docs/` is the source of truth (hand-authored, bilingual); there is **no build step**.
 - The original `src/` + `scripts/` build toolchain was vestigial (single-language, outputs to unused
   `dist/`) and has now been removed.
-- 9 portfolio items; modals 1–9 are hand-edited in both `index-en.html` and `index-de.html`.
+- 11 portfolio items; modals 1–11 are hand-edited in both `index-en.html` and `index-de.html`.
 - Contact form uses a Formspree endpoint; no backend in repo.
+
+## 2026-11-23 — Add two new portfolio showcases (Industrial Image Processing + LocalAI)
+
+- [x] Added **Industrial Image Processing** (`portfolioModal10`, caption `Industrielle Bildverarbeitung`)
+      describing a client's complex industrial-inspection problem (uncertainty, varying lighting,
+      transparency) solved with a sample-validated core algorithm integrated into the client's own
+      software.
+- [x] Added **LocalAI Deployments** (`portfolioModal11`, caption `LocalAI-Deployments`) describing a
+      full on-premise LocalAI stack for a small engineering firm (RAG over 100k+ docs + live JIRA
+      ingestion, fully local interface for sensitive topics, local dev agent).
+- [x] Added `LocalAI` to the core-competencies masthead in both `index-en.html` and `index-de.html`.
+- [x] Created new assets `docs/assets/img/portfolio/cupprocessor.png` and
+      `docs/assets/img/portfolio/localai.{svg,png}` (PNG via headless Chromium).
+- [x] Added 2 grid items + 2 modals to both language files, keeping them in sync.
+- [x] Fixed a **pre-existing charset bug** in `index-de.html`: `<meta charset="utf-t" />` →
+      `utf-8`. This bug was corrupting all German umlauts and directly affected my new umlaut
+      content, so the fix was warranted. Confirmed pre-existing on `master`.
+- [x] Verified: 11 grid items, 11 modals, 4 new-asset refs each, 22 modal refs each in both files.
+- [x] Served on port 8080 (all assets return 200) and rendered headless Chromium screenshots of
+      both EN and DE pages — layout verified, new items appear correctly, DE umlauts now render
+      correctly.
+- [x] **Asset fixes (2026-11-23):**
+      - Industrial Image Processing: used the actual attached screenshot (`arbitarytilts.png`,
+        UUID `7fcc1104`) that was saved to disk. The screenshot is very wide (1983×610, ratio 3.25:1,
+        10 debug cells) but the dominant card format is 640×385 (ratio 1.66:1). After testing crop
+        options, decided to **crop to 640×385 showing the left portion** (matching the exact card
+        size) — the 3 red-X failures + green circles are shown; the right half of the grid is cut
+        off. Resized from the 1014×610 crop to 640×385 via LANCZOS. Verified in full EN and DE page
+        renders and in a modal (`col-lg-8`) render — displays correctly at card size.
+      - LocalAI: aligned all four bubble labels to the "Secure topics" convention (25px inside the
+        box left edge, baseline 10px above the box bottom). Previously "100k+ documents" and
+        "Live JIRA ingestion" sat on the bottom border and "Local dev agent" was misaligned.
+      - Server on :8080 returns 200 for both updated assets (cupprocessor.png 1099478B, localai.png 178415B).
 
 ## Next steps (pending approval / further instruction)
 - Update `docs/index-de.html` in parallel with `docs/index-en.html` when editing English content.

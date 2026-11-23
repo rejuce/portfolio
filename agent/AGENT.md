@@ -30,7 +30,7 @@ produced a single-language build and are not part of this bilingual site. Do not
 portfolio/
 ├── docs/                    # SOURCE OF TRUTH — built / published, tracked in git
 │   ├── index.html           # lang-redirect → index-en.html / index-de.html
-│   ├── index-en.html        # English site (hand-edited; 9 portfolio items + modals 1–9)
+│   ├── index-en.html        # English site (hand-edited; 11 portfolio items + modals 1–11)
 │   ├── index-de.html        # German site (hand-edited)
 │   ├── impressum.html       # Legal notice
 │   ├── css/styles.css       # Compiled CSS
@@ -49,7 +49,7 @@ portfolio/
 - **No build toolchain.** `docs/` is the source of truth; there is nothing to compile or bundle.
 - **Multilingual:** `index.html` redirects to `index-en.html` / `index-de.html` based on
   `navigator.language`. Always mirror content changes across both language files.
-- **Portfolio items:** 9 projects, each with a modal (`portfolioModal1` … `portfolioModal9`),
+- **Portfolio items:** 11 projects, each with a modal (`portfolioModal1` … `portfolioModal11`),
   duplicated in both language files.
 - **Contact form:** Formspree endpoint (`https://formspree.io/f/xyzjazrj`) — no backend in repo.
 - **Editorconfig:** 4-space indentation, final newline, no trailing whitespace (except `.md`).
@@ -65,6 +65,8 @@ portfolio/
 7. 2D-3D Data Fusion — inspection cameras + 3D profile sensors, MQTT/I/O
 8. Windows Like Linux Task Manager — open source, github.com/rejuce/LikeTaskManager
 9. Texture Analysis — OpenCV, OpenMP, GPU co-processing
+10. Industrial Image Processing — sample-validated core algorithm for a client's industrial-inspection problem (uncertainty, varying lighting, transparency); asset `cupprocessor.{svg,png}`
+11. LocalAI Deployments — full on-premise LocalAI stack (RAG over 100k+ docs + live JIRA ingestion, fully local interface, local dev agent); asset `localai.{svg,png}`
 
 ## Working Rules
 
