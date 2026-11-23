@@ -49,7 +49,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">System Architecture - C++ - Qt - Image Processing - Embedded Systems</p>
+                <p class="masthead-subheading font-weight-light mb-0">System Architecture - C++ - Qt - Image Processing - Embedded Systems - LocalAI</p>
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -170,6 +170,30 @@
                             <img class="img-fluid" src="assets/img/portfolio/tex1.png" alt="..." />
                             <div class="portfolio-caption text-center mt-2">
                                 <small>Texture Analysis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 10-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal10">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/cupprocessor.png" alt="..." />
+                            <div class="portfolio-caption text-center mt-2">
+                                <small>Industrial Image Processing</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 11-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal11">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/localai.png" alt="..." />
+                            <div class="portfolio-caption text-center mt-2">
+                                <small>LocalAI Deployments</small>
                             </div>
                         </div>
                     </div>
@@ -636,6 +660,80 @@
                                         <li>Applied advanced texture analysis and measurement techniques across multiple projects.</li>
                                         <li>Focus areas included structure characterization, Fourier-space filtering, periodicity and angular distribution analysis, color analysis, and statistical anomaly detection.</li>
                                         <li>Implemented in Python or modern C++ using OpenCV, OpenMP, and GPU co-processing.</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 10-->
+        <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" aria-labelledby="portfolioModal10" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Industrial Image Processing</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cupprocessor.png" alt="CupProcessor debug output showing detected cups with width measurements" />
+                                    <!-- Portfolio Modal - Text-->
+                                    <ul class="mb-4 text-start ps-3">
+                                        <li>A client running an industrial inspection system could not find a working solution for a complex detection problem involving uncertainty, varying lighting conditions, and transparent objects.</li>
+                                        <li>Developed the core detection algorithm from scratch and validated it against physical samples, separating true targets from spurious detections by confidence and geometry.</li>
+                                        <li>Handled transparency and fluctuating illumination so the pipeline stayed reliable on the live production line.</li>
+                                        <li>The client integrated the validated algorithm into their own software solution for ongoing use.</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 11-->
+        <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" aria-labelledby="portfolioModal11" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">LocalAI Deployments</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/localai.png" alt="LocalAI deployment architecture showing documents, JIRA ingestion, a local development agent, and secure topics around a fully on-premise AI core" />
+                                    <!-- Portfolio Modal - Text-->
+                                    <ul class="mb-4 text-start ps-3">
+                                        <li>Deployed a complete LocalAI stack for a small engineering company, keeping all processing on-premise for security-sensitive topics.</li>
+                                        <li>Built a Retrieval-Augmented Generation (RAG) system over 100k+ documents with live ingestion of JIRA tickets for up-to-date, grounded answers.</li>
+                                        <li>Provided a 100% local AI interface so no data ever leaves the customer's infrastructure.</li>
+                                        <li>Delivered a local software-development agent to accelerate a small engineering team's daily workflow.</li>
                                     </ul>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
